@@ -92,7 +92,18 @@ arn:aws:cloudformation:ap-southeast-1:604020082473:stack/ProdxcloudAwsCdkStack/8
 
 # Get API gateway
 
+CdkTsApiGatewayStack.APIKeyID = qwvmvijwsc
+CdkTsApiGatewayStack.RestAPIEndpointB14C3C54 = https://hi11qs2adb.execute-api.ap-southeast-1.amazonaws.com/prod/
+Stack ARN:
+arn:aws:cloudformation:ap-southeast-1:604020082473:stack/CdkTsApiGatewayStack/305257b0-5f71-11ee-bef5-0a61cfcd84ee
+
 aws apigateway get-api-key --api-key API_KEY_ID --include-value
+
+ Testing Using Postman / CURL
+
+ - Add ENDPOINT Variable value:  https://hi11qs2adb.execute-api.ap-southeast-1.amazonaws.com/prod/v1
+ - Add X-API-Key Variable value: ZlBj4co3nl6E0Z4ADRWzV8ahwDpfBtpq5teBDioG
+ - Add Request {{ENDPOINT}}/open
       
 # OutPut Report / Result
 
@@ -110,3 +121,5 @@ arn:aws:cloudformation:ap-southeast-1:604020082473:stack/CdkTsApiGatewayStack/2e
 ✨  Total time: 75.15s
 
 # API Keys
+ZlBj4co3nl6E0Z4ADRWzV8ahwDpfBtpq5teBDioG
+

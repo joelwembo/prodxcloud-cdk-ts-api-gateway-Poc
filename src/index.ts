@@ -45,6 +45,16 @@ export const handler = async (event:APIGatewayEvent) => {
             return createResponse(200, { result: `${httpMethod} on secure resource with param: ${param} was successful!`});
         }
 
+        case '/v2/open/{param}': {
+            if ( httpMethod === 'POST') {
+                const param = getParam();
+                const name = getNameFromBody();
+                return createResponse(200, { result: `${httpMethod} on secure resource with param: ${param} and name: ${name} was successful!`});
+            }
+            const param = getParam();
+            return createResponse(200, { result: `${httpMethod} on secure resource with param: ${param} was successful!`});
+        }
+
         default : {
             return createResponse(500, { result: 'Error: Resource was not found!'});
         }
