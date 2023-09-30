@@ -15,3 +15,8 @@
 //     VisibilityTimeout: 300
 //   });
 // });
+
+test("Dummy unit test", () => {
+    const actual = 1 + 1; // not implemented yet
+    expect(actual).toBe(2);
+});

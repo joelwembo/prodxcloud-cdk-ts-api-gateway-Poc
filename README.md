@@ -1,10 +1,12 @@
-# Welcome to your CDK TypeScript project
+# Welcome to prodxcloud CDK Infrastructure project
 
 This is a blank project for CDK development with TypeScript.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
 ## Useful commands
+
+cdk init app --language typescript
 
 * `npm run build`   compile typescript to js
 * `npm run watch`   watch for changes and compile
@@ -13,20 +15,86 @@ The `cdk.json` file tells the CDK Toolkit how to execute your app.
 * `cdk diff`        compare deployed stack with current state
 * `cdk synth`       emits the synthesized CloudFormation template
 
-## Deploy to aws steps
+# You can also install modules individually
+
+$ npm install --save @aws-cdk/aws-apigateway
+$ npm install --save  @aws-cdk/aws-lambda
+$ npm install --save  @aws-cdk/aws-dynamodb
+
+# Deploy to aws steps
 
 1. npm run build
 2. cdk diff
 3. Bootstrap
 - export CDK_NEW_BOOTSTRAP=1
-- cdk bootstrap --trust=604020082473 aws://604020082473/ap-southeast-1 --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://604020082473/ap-southeast-1 --verbose --profile=default
+- npx cdk bootstrap --trust=604020082473 aws://604020082473/ap-southeast-1 --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://604020082473/ap-southeast-1 --verbose --profile=default
   
 3. cdk synth
+
 4. cdk deploy 
-5. cdk deploy --force --method=direct --require-approval never  --verbose --no-previous-parameters --profile=default
 
-npm run cdk deploy--force --require-approval never --no-previous-parameters --verbose
+ - npx cdk deploy --force --require-approval never --method=direct  --no-previous-parameters --profile=default --verbose
 
+ - npx cdk deploy --require-approval never --method=direct  --no-previous-parameters --profile=default --verbose --outputs-file ./cdk-outputs.json
+
+
+arn:aws:secretsmanager:ap-southeast-1:604020082473:secret:public-token-UCPN3b
+public-token: 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
+              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
+
+# AWS Account Details
+
+AWS_ACCESS_KEY_ID : AKIAYZITHA4UQ5QJPS5K
+AWS_SECRET_ACCESS_KEY : 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
+
+
+AWS_REGION="ap-southeast-1"
+ACCOUNT_NUMBER=604020082473
+echo "${ACCOUNT_NUMBER}"
+
+
+# OutPut Report / Result
+   Deployment time: 185.51s
+
+Stack ARN:
+arn:aws:cloudformation:ap-southeast-1:604020082473:stack/ProdxcloudAwsCdkStack/84b0c7c0-4dc8-11ee-a6d6-06b34fabaa3e
+
+✨  Total time: 192.64s
+
+# AWS Codepipeline
+
+- Create Github access token with permissions level ( Admin, webhooks, code editions,...)
+- add the github access token to aws secret manager with same name
+   - Settings --> Developer Settings -> Personal access tokens --> Fine-grained tokens
+- Create Github AWS Environment Secrets  
+      - Github --> Settings --> Actions --> new env
+- Add webhook github
+   - Adding webhood depends on Fine-grained tokens 
+   https://ap-southeast-1.webhooks.aws/trigger?t=eyJlbmNyeXB0ZWREYXRhIjoiVUNTeHVtZUk4NFphRHR0WHZEblROR1IxNXNOa2E4UGh6dEdPanRyaENXLzI5MUFpdjBKZmtUNkxNUDcyVVUzVDBoVEpiQitvcHRiVDVEdlRyVlg5TG1xblBGeTUyVlg1c0JhSzZqenF1MVBSWE8wL250VUkra3Fqd1lmWHVhK3hxb0JsNVRUd3hXR0tSYlcyUG45L1dRNXpQMThGMW40b2lxM2o0enNTS1JZMzhRPT0iLCJpdlBhcmFtZXRlclNwZWMiOiJVMkgya2g0SGpyRTlwQ1BjIiwibWF0ZXJpYWxTZXRTZXJpYWwiOjF9&v=1
+
+   - Added Programmatically :
+
+   ''
+     const githubSourceAction = new codepipeline_actions.GitHubSourceAction({
+      actionName: 'Checking_Out_Source_Code',
+      output: source,
+      owner: props.github.owner,
+      repo: props.github.repo,
+      branch: props.github.branch,
+      oauthToken: githubToken,
+      trigger: codepipeline_actions.GitHubTrigger.WEBHOOK,
+      runOrder: 1,
+    });
+   ''
+
+# For RDS and API Gateway
+ Create RDS Role by creating secret keys
+
+# Get API gateway
+
+aws apigateway get-api-key --api-key API_KEY_ID --include-value
+      
+# OutPut Report / Result
 
 Outputs:
 CdkTsApiGatewayStack.RestAPIEndpointB14C3C54 = https://s5b5glvjw4.execute-api.ap-southeast-1.amazonaws.com/prod/
@@ -42,14 +110,3 @@ arn:aws:cloudformation:ap-southeast-1:604020082473:stack/CdkTsApiGatewayStack/2e
 ✨  Total time: 75.15s
 
 # API Keys
-
-D
-4bzmt49j29
-Name
-demo-api-key
-API key
-EW1MXeoBHn9qd3h8UBnTacdoPkCN5VB386a9AhAc
-Description
-Api Key used for Api Gateway YouTube tutorial
-Enabled
-Enabled 

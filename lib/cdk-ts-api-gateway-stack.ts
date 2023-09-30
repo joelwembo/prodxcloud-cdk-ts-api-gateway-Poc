@@ -1,7 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
-import { Stack, StackProps, RemovalPolicy, CfnOutput } from 'aws-cdk-lib';
+import { CfnOutput } from 'aws-cdk-lib';
 import { Construct } from 'constructs';
 import { ICdkTsApiGatewayStackProps, IValidators } from '../bin/stack-config-types';
 
