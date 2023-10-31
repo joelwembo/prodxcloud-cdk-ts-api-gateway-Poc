@@ -1,5 +1,7 @@
 # Welcome to prodxcloud CDK Infrastructure project
 
+![Alt text](image.png)
+
 This is a blank project for CDK development with TypeScript.
 
 The `cdk.json` file tells the CDK Toolkit how to execute your app.
@@ -27,7 +29,7 @@ $ npm install --save  @aws-cdk/aws-dynamodb
 2. cdk diff
 3. Bootstrap
 - export CDK_NEW_BOOTSTRAP=1
-- npx cdk bootstrap --trust=604020082473 aws://604020082473/ap-southeast-1 --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://604020082473/ap-southeast-1 --verbose --profile=default
+- npx cdk bootstrap --trust=xxxxxxxxxxxx aws://xxxxxxxxxxxx/ap-southeast-1 --cloudformation-execution-policies arn:aws:iam::aws:policy/AdministratorAccess aws://xxxxxxxxxxxx/ap-southeast-1 --verbose --profile=default
   
 3. cdk synth
 
@@ -38,7 +40,7 @@ $ npm install --save  @aws-cdk/aws-dynamodb
  - npx cdk deploy --require-approval never --method=direct  --no-previous-parameters --profile=default --verbose --outputs-file ./cdk-outputs.json
 
 
-arn:aws:secretsmanager:ap-southeast-1:604020082473:secret:public-token-UCPN3b
+arn:aws:secretsmanager:ap-southeast-1:xxxxxxxxxxxx:secret:public-token-UCPN3b
 public-token: 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
               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
 
@@ -49,7 +51,7 @@ AWS_SECRET_ACCESS_KEY : qCYTCd2i3IY6XbmTrpNfm0fno7yuLqu2yox/9mCq
 
 
 AWS_REGION="ap-southeast-1"
-ACCOUNT_NUMBER=604020082473
+ACCOUNT_NUMBER=xxxxxxxxxxxx
 echo "${ACCOUNT_NUMBER}"
 
 
@@ -57,7 +59,7 @@ echo "${ACCOUNT_NUMBER}"
    Deployment time: 185.51s
 
 Stack ARN:
-arn:aws:cloudformation:ap-southeast-1:604020082473:stack/ProdxcloudAwsCdkStack/84b0c7c0-4dc8-11ee-a6d6-06b34fabaa3e
+arn:aws:cloudformation:ap-southeast-1:xxxxxxxxxxxx:stack/ProdxcloudAwsCdkStack/84b0c7c0-4dc8-11ee-a6d6-06b34fabaa3e
 
 ✨  Total time: 192.64s
 
@@ -95,7 +97,7 @@ arn:aws:cloudformation:ap-southeast-1:604020082473:stack/ProdxcloudAwsCdkStack/8
 CdkTsApiGatewayStack.APIKeyID = qwvmvijwsc
 CdkTsApiGatewayStack.RestAPIEndpointB14C3C54 = https://hi11qs2adb.execute-api.ap-southeast-1.amazonaws.com/prod/
 Stack ARN:
-arn:aws:cloudformation:ap-southeast-1:604020082473:stack/CdkTsApiGatewayStack/305257b0-5f71-11ee-bef5-0a61cfcd84ee
+arn:aws:cloudformation:ap-southeast-1:xxxxxxxxxxxx:stack/CdkTsApiGatewayStack/305257b0-5f71-11ee-bef5-0a61cfcd84ee
 
 aws apigateway get-api-key --api-key API_KEY_ID --include-value
 
@@ -110,13 +112,13 @@ aws apigateway get-api-key --api-key API_KEY_ID --include-value
 Outputs:
 CdkTsApiGatewayStack.RestAPIEndpointB14C3C54 = https://s5b5glvjw4.execute-api.ap-southeast-1.amazonaws.com/prod/
 Stack ARN:
-arn:aws:cloudformation:ap-southeast-1:604020082473:stack/CdkTsApiGatewayStack/73b36810-4db9-11ee-ae6d-063f7ebf7fe2
+arn:aws:cloudformation:ap-southeast-1:xxxxxxxxxxxx:stack/CdkTsApiGatewayStack/73b36810-4db9-11ee-ae6d-063f7ebf7fe2
 
 ✨  Total time: 70.18s
 
 CdkTsApiGatewayStack.RestAPIEndpointB14C3C54 = https://d99pvr7e0i.execute-api.ap-southeast-1.amazonaws.com/prod/
 Stack ARN:
-arn:aws:cloudformation:ap-southeast-1:604020082473:stack/CdkTsApiGatewayStack/2ef23350-51fb-11ee-973e-0a61cfcd84ee
+arn:aws:cloudformation:ap-southeast-1:xxxxxxxxxxxx:stack/CdkTsApiGatewayStack/2ef23350-51fb-11ee-973e-0a61cfcd84ee
 
 ✨  Total time: 75.15s
 

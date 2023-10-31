@@ -124,7 +124,7 @@ export class CdkTsApiGatewayStack extends cdk.Stack {
       },
     });
 
-    // API Key for authorization
+    // API Key for authorization gh
     const apiKey = api.addApiKey('ApiKey', {
       apiKeyName: props.apiKey.name,
       description: props.apiKey.desc,
@@ -134,6 +134,10 @@ export class CdkTsApiGatewayStack extends cdk.Stack {
 
     new CfnOutput(this, 'API Key ID', {
       value: apiKey.keyId,
+    });
+
+    new CfnOutput(this, 'API Key ', {
+      value: apiKey.keyArn,
     });
   }
 }
