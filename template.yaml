@@ -23,12 +23,12 @@ Resources:
       Code:
         S3Bucket:
           Fn::Sub: cdk-hnb659fds-assets-${AWS::AccountId}-${AWS::Region}
-        S3Key: d2888ac641ae20f8303d7d203d5199509c4c1a9bab38b5f067ba5fb4db8de4f7.zip
+        S3Key: bf680985de15d993c3b2a21de721b41e7f52410c5986e7c76c76e222583eaa61.zip
       Role:
         Fn::GetAtt:
           - LambdaResolverServiceRoleFD801B33
           - Arn
-      Description: Lambda resolver used for Api Gateway YouTube tutorial
+      Description: Lambda resolver used for Api Gateway
       FunctionName: demo-resolver
       Handler: index.handler
       MemorySize: 256
@@ -38,22 +38,22 @@ Resources:
       - LambdaResolverServiceRoleFD801B33
     Metadata:
       aws:cdk:path: CdkTsApiGatewayStack/LambdaResolver/Resource
-      aws:asset:path: asset.d2888ac641ae20f8303d7d203d5199509c4c1a9bab38b5f067ba5fb4db8de4f7
+      aws:asset:path: asset.bf680985de15d993c3b2a21de721b41e7f52410c5986e7c76c76e222583eaa61
       aws:asset:is-bundled: false
       aws:asset:property: Code
   RestAPI1CC12F26:
     Type: AWS::ApiGateway::RestApi
     Properties:
-      Description: Rest Api Gateway used for Api Gateway YouTube tutorial
+      Description: Rest Api Gateway used for Api Gateway
       Name: demo-rest-api
     Metadata:
       aws:cdk:path: CdkTsApiGatewayStack/RestAPI/Resource
-  RestAPIDeploymentD35A5380f752b9c28c857060917ea08143289eab:
+  RestAPIDeploymentD35A5380217c99c784d8da03aff8aa5dfe32b529:
     Type: AWS::ApiGateway::Deployment
     Properties:
       RestApiId:
         Ref: RestAPI1CC12F26
-      Description: Rest Api Gateway used for Api Gateway YouTube tutorial
+      Description: Rest Api Gateway used for Api Gateway
     DependsOn:
       - demobodyandparamvalidatorA44BB12D
       - demobodyvalidatorE705ECE6
@@ -85,7 +85,7 @@ Resources:
       RestApiId:
         Ref: RestAPI1CC12F26
       DeploymentId:
-        Ref: RestAPIDeploymentD35A5380f752b9c28c857060917ea08143289eab
+        Ref: RestAPIDeploymentD35A5380217c99c784d8da03aff8aa5dfe32b529
       StageName: prod
     Metadata:
       aws:cdk:path: CdkTsApiGatewayStack/RestAPI/DeploymentStage.prod/Resource
@@ -977,7 +977,7 @@ Resources:
           Stage:
             Ref: RestAPIDeploymentStageprod21CF62B9
           Throttle: {}
-      Description: Usage plan used for Api Gateway YouTube tutorial
+      Description: Usage plan used for Api Gateway
       Quota:
         Limit: 100
         Period: DAY
@@ -1000,7 +1000,7 @@ Resources:
   RestAPIApiKey90D5CF9C:
     Type: AWS::ApiGateway::ApiKey
     Properties:
-      Description: Api Key used for Api Gateway YouTube tutorial
+      Description: Api Key used for Api Gateway
       Enabled: true
       Name: demo-api-key
       StageKeys:
@@ -1060,7 +1060,7 @@ Resources:
   CDKMetadata:
     Type: AWS::CDK::Metadata
     Properties:
-      Analytics: v2:deflate64:H4sIAAAAAAAA/21Qy07DMBD8lt4d04AEXNsiLqiiCoJrtY23YRvHDvGaKory79hOEAVxmpl9jMd7LW+XcrmAs8tKVWeaDnJ4YShrEUr7QUNzUCCHR29KJmvE5mgu+Q67hpwLahQEjRwKqzE2Io7C3ezBOWQnVxGClmtf1shrcCigpQoYz9CHPXS8aimtzvQBW237Bg3H6oUK+ar0yETCvPVdiclzi/xuVWzO7Ls7O0/81YXFnYb0h//FE/YipIgQyjMr8MOHdG+gSQHbbjL9U9tahToliGQcfyKkI8TQZKo48Oy59fwrWeAbaxRxOqkJDvLkrj7ze5nfyXxxckRZ5w1Tg7KY8Av7SJJMwwEAAA==
+      Analytics: v2:deflate64:H4sIAAAAAAAA/21RwU7DMAz9Fu5pqIaExHEb4oImpiK4Tl5ritc0KY3DVFX9d5y0iIE4+b3n+OXFWenbXOdXcPZZWTWZoaMenxnKRol0GA20xwr0+BBsyeSs2r7ZS7zHviXvhU2KoNVj4QzGRqyT8jcH8B7Z63UswvUmlA3yBjwq6KgGxjMMMoee1x2l0QXeY2fc0KLlqF4wyVenS2Yg513oS0yeO+R3V8Xmgr67i/OMX7wM7g2kN/xPHnFQkiIWkRdU4EeQdK9gqAJ2/Wz6R9u5Ck1KEME0/URIS4ihydbxwFPgLvCvZIK3zlbEaaVWHPTJX3+ucn0n33TyRFkfLFOLupjrF1F7XrHCAQAA
     Metadata:
       aws:cdk:path: CdkTsApiGatewayStack/CDKMetadata/Default
     Condition: CDKMetadataAvailable
@@ -1078,6 +1078,19 @@ Outputs:
           - /
           - Ref: RestAPIDeploymentStageprod21CF62B9
           - /
+  APIKeyID:
+    Value:
+      Ref: RestAPIApiKey90D5CF9C
+  APIKey:
+    Value:
+      Fn::Join:
+        - ""
+        - - "arn:"
+          - Ref: AWS::Partition
+          - ":apigateway:"
+          - Ref: AWS::Region
+          - ::/apikeys/
+          - Ref: RestAPIApiKey90D5CF9C
 Conditions:
   CDKMetadataAvailable:
     Fn::Or:

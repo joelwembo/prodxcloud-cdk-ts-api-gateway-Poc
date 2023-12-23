@@ -110,17 +110,12 @@ aws apigateway get-api-key --api-key API_KEY_ID --include-value
 # OutPut Report / Result
 
 Outputs:
-CdkTsApiGatewayStack.RestAPIEndpointB14C3C54 = https://s5b5glvjw4.execute-api.ap-southeast-1.amazonaws.com/prod/
+CdkTsApiGatewayStack.APIKey = arn:aws:apigateway:ap-southeast-1::/apikeys/2kv2cvikx0
+CdkTsApiGatewayStack.APIKeyID = 2kv2cvikx0
+CdkTsApiGatewayStack.RestAPIEndpointB14C3C54 = https://tgbfa8ngfe.execute-api.ap-southeast-1.amazonaws.com/prod/
 Stack ARN:
-arn:aws:cloudformation:ap-southeast-1:xxxxxxxxxxxx:stack/CdkTsApiGatewayStack/73b36810-4db9-11ee-ae6d-063f7ebf7fe2
+arn:aws:cloudformation:ap-southeast-1:604020082473:stack/CdkTsApiGatewayStack/69fe77d0-a1ae-11ee-a83b-0abc96bce958
 
-✨  Total time: 70.18s
-
-CdkTsApiGatewayStack.RestAPIEndpointB14C3C54 = https://d99pvr7e0i.execute-api.ap-southeast-1.amazonaws.com/prod/
-Stack ARN:
-arn:aws:cloudformation:ap-southeast-1:xxxxxxxxxxxx:stack/CdkTsApiGatewayStack/2ef23350-51fb-11ee-973e-0a61cfcd84ee
-
-✨  Total time: 75.15s
 
 # API Keys
 ZlBj4co3nl6E0Z4ADRWzV8ahwDpfBtpq5teBDioG

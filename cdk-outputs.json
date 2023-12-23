@@ -1,0 +1,7 @@
+{
+  "CdkTsApiGatewayStack": {
+    "APIKeyID": "2kv2cvikx0",
+    "APIKey": "arn:aws:apigateway:ap-southeast-1::/apikeys/2kv2cvikx0",
+    "RestAPIEndpointB14C3C54": "https://tgbfa8ngfe.execute-api.ap-southeast-1.amazonaws.com/prod/"
+  }
+}

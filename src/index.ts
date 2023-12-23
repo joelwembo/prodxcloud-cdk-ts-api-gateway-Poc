@@ -17,7 +17,7 @@ export const handler = async (event:APIGatewayEvent) => {
         return parsedBody.name;
     }
 
-    const getParam = () => {
+    const getParam = () => { 
         if(pathParameters?.param) return pathParameters?.param;
         return false;
     }
@@ -25,6 +25,10 @@ export const handler = async (event:APIGatewayEvent) => {
     switch (resource) {
         case '/v1/open': { 
             return createResponse(200, { result: `${httpMethod} on open resource was successful!`});
+        }
+
+        case '/v1/close': { 
+            return createResponse(200, { result: `${httpMethod} on close resource was successful!`});
         }
 
         case '/v1/secure': { 
