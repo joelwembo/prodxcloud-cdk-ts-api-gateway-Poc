@@ -23,7 +23,7 @@
     "@aws-cdk/aws-apigateway": "^1.204.0",
     "@aws-cdk/aws-lambda": "^1.204.0",
     "@types/aws-lambda": "^8.10.109",
-    "aws-cdk-lib": "2.60.0",
+    "aws-cdk-lib": "^2.60.0",
     "constructs": "^10.2.69",
     "source-map-support": "^0.5.21"
   }

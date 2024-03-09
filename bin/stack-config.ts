@@ -6,41 +6,41 @@ const environmentConfig: ICdkTsApiGatewayStackProps = {
     Application: 'CdkTsApiGateway',
   },
   lambda: {
-    name: 'demo-resolver',
+    name: 'example-resolver',
     desc: 'Lambda resolver used for Api Gateway',
     memory: 256,
     timeout: 30,
   },
   api: {
-    name: 'demo-rest-api',
+    name: 'example-rest-api',
     desc: 'Rest Api Gateway used for Api Gateway',
-    modelName: 'DemoModel',
+    modelName: 'exampleModel',
     rootResource: 'v1',
   },
   usageplan: {
-    name: 'demo-usage-plan',
+    name: 'example-usage-plan',
     desc: 'Usage plan used for Api Gateway',
     limit: 100, // per day
     rateLimit: 20,
     burstLimit: 10,
   },
   apiKey: {
-    name: 'demo-api-key',
+    name: 'example-api-key',
     desc: 'Api Key used for Api Gateway',
   },
   validators: {
     bodyValidator: {
-        requestValidatorName: 'demo-body-validator',
+        requestValidatorName: 'example-body-validator',
         validateRequestBody: true,
         validateRequestParameters: false,
     },
     paramValidator: {
-        requestValidatorName: 'demo-param-validator',
+        requestValidatorName: 'example-param-validator',
         validateRequestBody: false,
         validateRequestParameters: true,
     },
     bodyAndParamValidator: {
-        requestValidatorName: 'demo-body-and-param-validator',
+        requestValidatorName: 'example-body-and-param-validator',
         validateRequestBody: true,
         validateRequestParameters: true,
     },
